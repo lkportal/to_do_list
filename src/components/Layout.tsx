@@ -6,20 +6,24 @@ import {Link} from 'react-router-dom'
 
 
 export default function Layout(){
- const[nameTitle,setnome] = useState<string>()
- const[selectTaks,setSelecTaks] = useState<string>()
- const[descricionTextArea,setDescricionTextArea] = useState<string>()
+ const[nameTitle,setnome] = useState<string>('')
+ const[selectTaks,setSelecTaks] = useState<string>('')
+ const[descricionTextArea,setDescricionTextArea] = useState<string>('')
  //Enviando A partir do submite do formulario
- const[textArea,setTextArea] = useState<string>()
- const[taks,setTaks]= useState<string>()
- const[title,setTile] = useState<string>()
+ const[textArea,setTextArea] = useState<string>('')
+ const[taks,setTaks]= useState<string>('')
+ const[title,setTile] = useState<string>('')
 
   function handleSubmit(event:React.FormEvent){
     event.preventDefault()
-    setTile(nameTitle)
-    setTaks(selectTaks)
-    setTextArea(descricionTextArea)
-    
+    if(nameTitle !== '' && selectTaks !== '' && descricionTextArea !== '' ){
+      setTile(nameTitle)
+      setTaks(selectTaks)
+      setTextArea(descricionTextArea)
+    }
+    else{
+      alert('Prencha os campos')
+    }
   }
 return(
  
@@ -40,10 +44,10 @@ return(
         </select>
        </div>
         <input type="submit" value='go' name="title"/>
-       
+        <Link to='/tarefas' state={{title:title,options:taks,textArea:textArea}}>Tarefas</Link>
      </FormConteiner>
     
-      <Link to='/tarefas' state={{title:title,options:taks,textArea:textArea}}>Tarefas</Link>
+     
      
     </div>
  

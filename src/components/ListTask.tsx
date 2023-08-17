@@ -1,6 +1,7 @@
 
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import   {useLocation,Link} from 'react-router-dom'
+import { string } from 'yargs'
  interface Data{
     title:string,
     options:string,
@@ -8,8 +9,9 @@ import   {useLocation,Link} from 'react-router-dom'
  }
 
 
-export default function ListTask({title,options,textArea}:any){
+export default function ListTask(){
 
+  
      let {state} = useLocation()
    const ObjData:Data ={
     title:state.title,
@@ -17,27 +19,28 @@ export default function ListTask({title,options,textArea}:any){
     textArea:state.textArea
    }
    const[dataTaks,setDataTaks] = useState([ObjData])
-   
+  
    useEffect(()=>{
     function Dtsfecth(){
-        setDataTaks([...dataTaks,ObjData])
-      
+        setDataTaks([...dataTaks])
+         
     }
     Dtsfecth()
- console.log(dataTaks[1])
-   },[title,options,textArea])
+ console.log()
+   },[])
 
-  const handleDel = () =>{
-    dataTaks.pop()
-  }
+
 
 return(
     <div>
         <Link to='/' >Volta</Link>
         <div>
             {dataTaks && dataTaks.map((value,index)=> { return(
-                <li  key={index}>{value.title} {value.textArea} {value.options} <button onClick={handleDel}>X</button></li>
+                <li  key={index}> Tarefa:{index},Titulo:{value.title},Descrição:{value.textArea},Categoria:{value.options}  </li>
             )} )}
+        </div>
+        <div>
+            {}
         </div>
         
     </div>
