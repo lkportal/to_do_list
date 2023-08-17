@@ -2,16 +2,22 @@ import { styled } from "styled-components";
 
 const colorPurple = '#DE56FF'
 export const FormConteiner = styled.form`
-  padding: 5rem;
-  
-`
-export const ConteinerDiv = styled.div`
-    display: flex;
+  padding: 1rem;
+  display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border: solid 2px #aaa;
+    padding: 2rem 0;
+  
+`
+export const ConteinerDivInput = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+   
     padding: 2rem 0;
 `
 export const InputTitle = styled.input`
