@@ -17,7 +17,6 @@ export const ConteinerDivInput = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-   
     padding: 2rem 0;
 `
 export const InputTitle = styled.input`

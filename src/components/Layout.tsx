@@ -1,7 +1,7 @@
 import { FormConteiner,ConteinerDivInput,InputTitle,OptionsDataDiv,BtnSumit,TextArea } from "./LayoutStyle"
 import React, { useState,useEffect } from "react"
 import ListTask from "./ListTask"
-import {Link} from 'react-router-dom'
+
 
 
 
@@ -17,6 +17,11 @@ export default function Layout(){
   function handleSubmit(event:React.FormEvent){
     event.preventDefault()
     if(nameTitle !== '' && selectTaks !== '' && descricionTextArea !== '' ){
+      /**
+       * Criei outros state para que não interfira na re-renderização do componente e sim que o dado
+       * esteja pronto para se enviado para outro componente. 
+       */
+
       setTile(nameTitle)
       setTaks(selectTaks)
       setTextArea(descricionTextArea)
@@ -44,7 +49,7 @@ return(
         </select>
        </div>
         <input type="submit" value='go' name="title"/>
-        <Link to='/tarefas' state={{title:title,options:taks,textArea:textArea}}>Tarefas</Link>
+       <ListTask title={title} options={taks} textArea={textArea} />
      </FormConteiner>
     
      

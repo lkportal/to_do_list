@@ -1,7 +1,7 @@
 
-import {useEffect, useState, useRef} from 'react'
-import   {useLocation,Link} from 'react-router-dom'
-import { string } from 'yargs'
+import {useEffect, useState,} from 'react'
+
+
  interface Data{
     title:string,
     options:string,
@@ -9,39 +9,46 @@ import { string } from 'yargs'
  }
 
 
-export default function ListTask(){
+export default function ListTask({title,options,textArea}:any){
 
   
-     let {state} = useLocation()
+  
    const ObjData:Data ={
-    title:state.title,
-    options:state.options,
-    textArea:state.textArea
+    title:title,
+    options:options,
+    textArea:textArea
    }
-   const[dataTaks,setDataTaks] = useState([ObjData])
+   const[dataTaks,setDataTaks] = useState<Data[]>([])
   
    useEffect(()=>{
+    /**
+     * Como já tem uma verificação de caso algum campo esteja em branco,ele não 
+     * tem a necessidade de verifica todos os atributos do objeto e sim, só um caso
+     * a entrada estejá vazia, e não mostrando os valores indefinidos.  
+     */ 
+    
     function Dtsfecth(){
-        setDataTaks([...dataTaks])
+        if(ObjData.title !==''){
+            
+            setDataTaks([...dataTaks,ObjData])
+        }
          
     }
     Dtsfecth()
- console.log()
-   },[])
+ 
+   },[title,options,textArea])
 
 
 
 return(
     <div>
-        <Link to='/' >Volta</Link>
+        
         <div>
-            {dataTaks && dataTaks.map((value,index)=> { return(
+           {dataTaks.length >1? dataTaks && dataTaks.map((value,index)=> { return(
                 <li  key={index}> Tarefa:{index},Titulo:{value.title},Descrição:{value.textArea},Categoria:{value.options}  </li>
-            )} )}
+            )} ):<li>Lista vazia</li> }
         </div>
-        <div>
-            {}
-        </div>
+       
         
     </div>
 )
