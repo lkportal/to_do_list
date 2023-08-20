@@ -25,6 +25,9 @@ export default function Layout(){
       setTile(nameTitle)
       setTaks(selectTaks)
       setTextArea(descricionTextArea)
+      setnome('')
+      setSelecTaks('')
+      setDescricionTextArea('')
     }
     else{
       alert('Prencha os campos')
