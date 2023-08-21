@@ -1,4 +1,4 @@
-
+import {DivConteiner,listConteiner} from './ListTaskStyle'
 import {useEffect, useState,} from 'react'
 
 
@@ -47,12 +47,14 @@ export default function ListTask({title,options,textArea}:any){
 return(
     <div>
         
-        <div>
+        <DivConteiner>
            {dataTaks.length >=1? dataTaks && dataTaks.map((value,index)=> { return(
-                <li  key={index}> Tarefa:{index},Titulo:{value.title},Descrição:{value.textArea},Categoria:{value.options} <time>Horas:{value.hours}:{value.minute}</time> 
+                <ul>
+                    <li  key={index}> Tarefa:{index},Titulo:{value.title},Descrição:{value.textArea},Categoria:{value.options} <time>Horas:{value.hours}:{value.minute}</time> 
                 <input type="checkbox" name="checkTaks"  /> </li>
-            )} ):<li>Lista vazia</li> }
-        </div>
+            
+                </ul>)} ):<li>Lista vazia</li> }
+        </DivConteiner>
        
         
     </div>

@@ -24,6 +24,8 @@ export const DivInputs = styled.div`
     } textarea{
         border: solid 0.5px #000;
         border-radius: 5%;
+        height: 100px;
+        resize: none;
     } textarea:focus,input:focus{
         outline: none;
         border: 0.5px solid #D37DFF;

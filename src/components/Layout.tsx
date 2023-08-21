@@ -40,7 +40,7 @@ return(
          <DivInputs>
           <input placeholder="Titulo"  onChange={(e) => setnome( e.target.value)}/>
           <textarea onChange={(e) => setDescricionTextArea(e.target.value)} name="textDescricion"
-           placeholder="Descrição" cols={30} rows={10}></textarea>
+           placeholder="Descrição" cols={1} rows={10} maxLength={75} ></textarea>
          </DivInputs>
        <DivSections>
        <select  onChange={(e) => setSelecTaks(e.target.value)}>
