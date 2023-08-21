@@ -8,46 +8,42 @@ export const FormConteiner = styled.form`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    border: solid 2px #aaa;
     padding: 2rem 0;
-  
 `
-export const ConteinerDivInput = styled.div`
+export const DivInputs = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem 0;
-`
-export const InputTitle = styled.input`
-    margin: 1em 0;
-    padding: 0.5em;
-    &:focus{
+    &,input, textarea{
+        padding: 0.5rem;
+        background-color: #EDCAFF;
+        
+    } input{
+        border: solid 0.5px #000;
+        margin-bottom: 0.5rem;
+        border-radius: 2%;
+    } textarea{
+        border: solid 0.5px #000;
+        border-radius: 5%;
+    } textarea:focus,input:focus{
         outline: none;
+        border: 0.5px solid #D37DFF;
+        background-color: #D37DFF;
     }
-
+`
+export const DivSections = styled.div`
+    flex-direction: row;
+    margin-top: 1rem;
 
 `
-export const OptionsDataDiv = styled.div`
-     margin: 1em 0;
-     align-self: flex-end;
-     margin-right: 20px;
-`
-export const BtnSumit = styled.input`
-    margin: 2em 0;
-    color: '#000';
-    background-color: ${colorPurple};
+export const BTN = styled.input`
+    margin-top: 1rem;
+    width: 75px;
+    background-color: #EDCAFF ;
     border: none;
-    padding: 1em 2em;
-    border-radius: 5%;
-   
-`
-export const TextArea = styled.textarea`
-        width: 70%;
-        height: 150px;
-        padding: 5px;
-        &:focus{
-            outline: none;
-        }
+    padding: 0.5rem 1rem;
+    &:hover{
+        cursor: pointer;
+        background-color: #D37DFF;
+    }
 
 `

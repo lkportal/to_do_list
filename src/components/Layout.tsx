@@ -1,5 +1,5 @@
-import { FormConteiner,ConteinerDivInput,InputTitle,OptionsDataDiv,BtnSumit,TextArea } from "./LayoutStyle"
-import React, { useState,useEffect } from "react"
+import { FormConteiner,DivInputs,DivSections,BTN} from "./LayoutStyle"
+import React, { useState } from "react"
 import ListTask from "./ListTask"
 
 
@@ -37,21 +37,22 @@ return(
  
     <div>
      <FormConteiner  onSubmit={handleSubmit}>
-         <ConteinerDivInput>
-          <input placeholder="escreve o titulo"  onChange={(e) => setnome( e.target.value)}/>
+         <DivInputs>
+          <input placeholder="Titulo"  onChange={(e) => setnome( e.target.value)}/>
           <textarea onChange={(e) => setDescricionTextArea(e.target.value)} name="textDescricion"
-           placeholder="Escreve Detalhes" cols={30} rows={10}></textarea>
-         </ConteinerDivInput>
-       <div>
-       <select onChange={(e) => setSelecTaks(e.target.value)}>
+           placeholder="Descrição" cols={30} rows={10}></textarea>
+         </DivInputs>
+       <DivSections>
+       <select  onChange={(e) => setSelecTaks(e.target.value)}>
+            <option disabled={true} value='categoria'>Escolha a categoria</option>
             <option value="compra">Comprar</option>
             <option value="fazer">Fazer</option>
             <option value="estudar">Estudar</option>
             <option value="tarefa">Tarefa</option>
             <option value="outros">Outros</option>
         </select>
-       </div>
-        <input type="submit" value='go' name="title"/>
+       </DivSections>
+        <BTN type="submit" value='Envia' name="title"/>
        <ListTask title={title} options={taks} textArea={textArea} />
      </FormConteiner>
     
