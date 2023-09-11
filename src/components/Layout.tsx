@@ -53,8 +53,9 @@ return(
         </select>
        </DivSections>
         <BTN type="submit" value='Envia' name="title"/>
-       <ListTask title={title} options={taks} textArea={textArea} />
+      
      </FormConteiner>
+     <ListTask title={title} options={taks} textArea={textArea} />
     
      
      

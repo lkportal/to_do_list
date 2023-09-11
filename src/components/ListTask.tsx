@@ -1,4 +1,4 @@
-import {DivConteiner,listConteiner} from './ListTaskStyle'
+import {DivConteiner} from './ListTaskStyle'
 import {useEffect, useState,} from 'react'
 
 
@@ -6,21 +6,19 @@ import {useEffect, useState,} from 'react'
     title:string,
     options:string,
     textArea:string,
-    hours:number,
-    minute:number
+ 
  }
 
 
 export default function ListTask({title,options,textArea}:any){
-
+ const[concluida,setConcluida] = useState<boolean>(false)
   
   
    const ObjData:Data ={
     title:title,
     options:options,
     textArea:textArea,
-    hours: new Date().getHours(),
-    minute: new Date().getMinutes()
+   
    }
    const[dataTaks,setDataTaks] = useState<Data[]>([])
   
@@ -33,11 +31,9 @@ export default function ListTask({title,options,textArea}:any){
     
     function Dtsfecth(){
         if(ObjData.title !==''){
-            
             setDataTaks([...dataTaks,ObjData])
-        }
-         
-    }
+        }    
+    }  
     Dtsfecth()
  
    },[title,options,textArea])
@@ -48,13 +44,20 @@ return(
     <div>
         
         <DivConteiner>
-           {dataTaks.length >=1? dataTaks && dataTaks.map((value,index)=> { return(
+           {dataTaks.length >=1 && dataTaks.length <=4? dataTaks && dataTaks.map((value,index)=> { return(
                 <ul>
-                    <li  key={index}> Tarefa:{index},Titulo:{value.title},Descrição:{value.textArea},Categoria:{value.options} <time>Horas:{value.hours}:{value.minute}</time> 
-                <input type="checkbox" name="checkTaks"  /> </li>
+                   
+                    <li  key={index}>Tarefa:{index}</li>
+                    <li>Titulo:{value.title}</li>
+                    <li>Descrição:{value.textArea}</li>
+                    <li>Categoria:{value.options.toUpperCase()}</li> 
+                </ul>)} ):<h1>Lista Vazia</h1>}
             
-                </ul>)} ):<li>Lista vazia</li> }
+             
         </DivConteiner>
+        <div>
+        
+        </div>
        
         
     </div>
